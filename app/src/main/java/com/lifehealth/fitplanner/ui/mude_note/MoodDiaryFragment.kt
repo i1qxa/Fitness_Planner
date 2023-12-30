@@ -1,37 +1,26 @@
 package com.lifehealth.fitplanner.ui.mude_note
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.lifehealth.fitplanner.R
 import com.lifehealth.fitplanner.databinding.FragmentMudeNoteBinding
+import com.lifehealth.fitplanner.ui.mude_note.mood_item.MoodItemFragment
+import com.lifehealth.fitplanner.ui.mude_note.mood_item.MoodItemViewModel
+import com.lifehealth.fitplanner.ui.mude_note.rv.MoodRVAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MoodDiaryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MoodDiaryFragment : Fragment() {
 
     private val binding by lazy { FragmentMudeNoteBinding.inflate(layoutInflater) }
+    private val viewModel by lazy { ViewModelProvider(this)[MoodDiaryViewModel::class.java] }
+    private val rv by lazy { binding.rvMoodNotes }
+    private val rvAdapter by lazy { MoodRVAdapter() }
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,23 +29,36 @@ class MoodDiaryFragment : Fragment() {
         return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Mude_Note_Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MoodDiaryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupBtnAddNoteClickListener()
+        setupRV()
+        observeNotes()
     }
+
+    private fun observeNotes(){
+        viewModel.moodList.observe(viewLifecycleOwner){
+            rvAdapter.submitList(it)
+        }
+    }
+
+    private fun setupRV(){
+        rv.adapter = rvAdapter
+        rv.layoutManager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.VERTICAL,
+            false
+        )
+    }
+
+    private fun setupBtnAddNoteClickListener(){
+        binding.fabAddMoodNote.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentContainer, MoodItemFragment())
+                addToBackStack(null)
+                commit()
+            }
+        }
+    }
+
 }

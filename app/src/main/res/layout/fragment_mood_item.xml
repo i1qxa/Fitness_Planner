@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.mude_note.mood_item.MoodItemFragment"
+    android:layout_gravity="center_vertical"
+    android:layout_marginHorizontal="30dp">
+    <EditText
+        android:id="@+id/etMoodNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="name"
+        android:inputType="textMultiLine"
+        android:hint="@string/hint_mood_note"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgMoodValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etMoodNote"
+        android:orientation="horizontal"
+        android:checkedButton="@id/rbMoodNormal"
+        >
+
+        <RadioButton
+            android:id="@+id/rbMoodBad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/mood_bad"
+            />
+        <RadioButton
+            android:id="@+id/rbMoodNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/mood_normal"
+            />
+        <RadioButton
+            android:id="@+id/rbMoodGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/mood_good"
+            />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgMoodValue"
+        android:text="@string/save"
+        />
+
+    <Button
+        android:id="@+id/btnDismissNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgMoodValue"
+        android:text="@string/cancel"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
