@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fitness Planner</string>
+    <string name="encouragement_title">Encouragement</string>
+    <string name="mood_diary_title">Mood diary</string>
+    <string name="sleep_title">Sleep</string>
+    <string name="sound_of_nature_title">Sound of Nature</string>
 </resources>
