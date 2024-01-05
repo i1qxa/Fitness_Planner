@@ -36,7 +36,6 @@ android {
     }
     buildFeatures{
         viewBinding = true
-        compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
@@ -45,11 +44,6 @@ android {
 
 dependencies {
     val room_version = "2.6.1"
-
-    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
-    implementation(composeBom)
-    androidTestImplementation(composeBom)
-    implementation("androidx.compose.material:material")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -64,5 +58,6 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    implementation("io.github.thechance101:chart:beta-0.0.5")
+
+    implementation ("com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT")
 }

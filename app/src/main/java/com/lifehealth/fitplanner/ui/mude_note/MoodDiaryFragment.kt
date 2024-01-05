@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lifehealth.fitplanner.R
 import com.lifehealth.fitplanner.databinding.FragmentMudeNoteBinding
+import com.lifehealth.fitplanner.ui.mude_note.mood_chart.MoodChartFragment
 import com.lifehealth.fitplanner.ui.mude_note.mood_item.MoodItemFragment
 import com.lifehealth.fitplanner.ui.mude_note.mood_item.MoodItemViewModel
 import com.lifehealth.fitplanner.ui.mude_note.rv.MoodRVAdapter
@@ -55,6 +56,13 @@ class MoodDiaryFragment : Fragment() {
         binding.fabAddMoodNote.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentContainer, MoodItemFragment())
+                addToBackStack(null)
+                commit()
+            }
+        }
+        binding.fabChart.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentContainer, MoodChartFragment())
                 addToBackStack(null)
                 commit()
             }

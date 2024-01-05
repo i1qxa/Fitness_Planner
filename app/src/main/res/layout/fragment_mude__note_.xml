@@ -26,6 +26,16 @@
         android:contentDescription="@string/add_mood_note"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabChart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/chart_icon"
+        android:contentDescription="@string/mood_change_chart"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

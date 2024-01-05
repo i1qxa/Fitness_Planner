@@ -12,6 +12,9 @@ interface MoodDao {
     @Query("SELECT * FROM mooddb ORDER BY date DESC")
     fun getMoodListLD():LiveData<List<MoodDB>>
 
+    @Query("SELECT moodValue FROM MoodDB")
+    fun getListOfMoodValue():LiveData<List<Int>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addMoodNote(note:MoodDB)
 
