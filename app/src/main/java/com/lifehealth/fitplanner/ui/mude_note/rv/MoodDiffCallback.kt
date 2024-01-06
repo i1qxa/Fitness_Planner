@@ -1,7 +1,7 @@
 package com.lifehealth.fitplanner.ui.mude_note.rv
 
 import androidx.recyclerview.widget.DiffUtil
-import com.lifehealth.fitplanner.data.MoodDB
+import com.lifehealth.fitplanner.data.mood.MoodDB
 
 class MoodDiffCallback : DiffUtil.ItemCallback<MoodDB>() {
 

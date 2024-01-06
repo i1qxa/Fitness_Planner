@@ -1,4 +1,4 @@
-package com.lifehealth.fitplanner.data
+package com.lifehealth.fitplanner.data.mood
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -16,9 +16,9 @@ interface MoodDao {
     fun getListOfMoodValue():LiveData<List<Int>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addMoodNote(note:MoodDB)
+    suspend fun addMoodNote(note: MoodDB)
 
     @Delete
-    suspend fun removeMoodNote(note:MoodDB)
+    suspend fun removeMoodNote(note: MoodDB)
 
 }

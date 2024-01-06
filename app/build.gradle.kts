@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.20-Beta2"
+    id("kotlin-parcelize")
 }
 
 android {
@@ -60,4 +62,14 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
 
     implementation ("com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT")
+
+    //retrofit
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("io.coil-kt:coil:2.4.0")
 }

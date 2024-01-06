@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lifehealth.fitplanner.data.FPDataBase
-import com.lifehealth.fitplanner.data.MoodDB
+import com.lifehealth.fitplanner.data.mood.MoodDB
 import kotlinx.coroutines.launch
 import java.util.Calendar
 

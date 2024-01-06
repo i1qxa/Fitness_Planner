@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.lifehealth.fitplanner.data.mood.MoodDB
+import com.lifehealth.fitplanner.data.mood.MoodDao
 import kotlinx.coroutines.InternalCoroutinesApi
 
 @Database(
@@ -15,7 +17,7 @@ import kotlinx.coroutines.InternalCoroutinesApi
 )
 abstract class FPDataBase:RoomDatabase() {
 
-    abstract fun moodDao():MoodDao
+    abstract fun moodDao(): MoodDao
 
     companion object {
         private var INSTANCE: FPDataBase? = null

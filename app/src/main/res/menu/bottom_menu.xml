@@ -16,4 +16,8 @@
         android:id="@+id/sound_of_nature"
         android:icon="@drawable/sound_icon"
         android:title="@string/sound_of_nature_title" />
+    <item
+        android:id="@+id/recipes"
+        android:icon="@drawable/recipe_icon"
+        android:title="@string/recipe_item" />
 </menu>

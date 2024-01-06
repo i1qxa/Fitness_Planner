@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.lifehealth.fitplanner.R
-import com.lifehealth.fitplanner.data.MoodDB
+import com.lifehealth.fitplanner.data.mood.MoodDB
 
 class MoodRVAdapter : ListAdapter<MoodDB, MoodViewHolder>(MoodDiffCallback()) {
 

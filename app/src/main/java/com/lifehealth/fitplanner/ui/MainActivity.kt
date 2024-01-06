@@ -7,6 +7,7 @@ import com.lifehealth.fitplanner.R
 import com.lifehealth.fitplanner.databinding.ActivityMainBinding
 import com.lifehealth.fitplanner.ui.encouragement.EncouragementFragment
 import com.lifehealth.fitplanner.ui.mude_note.MoodDiaryFragment
+import com.lifehealth.fitplanner.ui.recipe.RecipeFragment
 import com.lifehealth.fitplanner.ui.sleep.SleepFragment
 import com.lifehealth.fitplanner.ui.sound_of_nature.SoundOfNatureFragment
 
@@ -34,8 +35,12 @@ class MainActivity : AppCompatActivity() {
                     launchFragment(SleepFragment())
                     true
                 }
-                else ->{
+                R.id.sound_of_nature ->{
                     launchFragment(SoundOfNatureFragment())
+                    true
+                }
+                else ->{
+                    launchFragment(RecipeFragment())
                     true
                 }
             }

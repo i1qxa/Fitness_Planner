@@ -15,5 +15,10 @@
     <string name="begin">Начачть</string>
     <string name="stop">Закончить</string>
     <string name="breath_exercise_description">Людям, увы, мешают спать не только яркие экраны в комнате, но и дневные тревоги в голове. Все привыкли быть в курсе событий, мало кто умеет расслабляться. Что может помочь? Вдохи и выдохи, которых вы даже не замечаете!\nЧтобы начать дыхательную гимнастику нажмите кнопку Начать</string>
-
+    <string name="recipe_item">Рецепты</string>
+    <string name="hint_empty_response">Не найдено рецептов по вашему запросу</string>
+    <string name="hint_query">Введите сюда название блюда</string>
+    <string name="kkal">ккал:</string>
+    <string name="total_time">Общее время:</string>
+    <string name="ingredients">Ингредиенты:</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.lifehealth.fitplanner.data
+package com.lifehealth.fitplanner.data.mood
 
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
