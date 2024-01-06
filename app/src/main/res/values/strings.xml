@@ -4,8 +4,6 @@
     <string name="mood_diary_title">Дневник настроения</string>
     <string name="sleep_title">Здоровый сон</string>
     <string name="sound_of_nature_title">Звуки природы</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_mood_note">Добавить запись</string>
     <string name="hint_mood_note">Опишите свое настроение сегодня здесь</string>
     <string name="mood_bad">плохо</string>
@@ -14,4 +12,5 @@
     <string name="save">Сохранить</string>
     <string name="cancel">Отменить</string>
     <string name="mood_change_chart">График изменения настроения</string>
+
 </resources>

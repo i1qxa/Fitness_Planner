@@ -1,64 +1,140 @@
 package com.lifehealth.fitplanner.ui.sound_of_nature
 
+import android.media.MediaPlayer
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.lifehealth.fitplanner.R
 import com.lifehealth.fitplanner.databinding.FragmentSoundOfNatureBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SoundOfNatureFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SoundOfNatureFragment : Fragment() {
 
     private val binding by lazy { FragmentSoundOfNatureBinding.inflate(layoutInflater) }
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var mediaPlayer:MediaPlayer? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SoundOfNatureFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SoundOfNatureFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupBtnClickListeners()
+        setupSoundLogo()
+        setupSoundNames()
     }
+
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer?.pause()
+        mediaPlayer = null
+    }
+
+    private fun setupBtnClickListeners(){
+        setupBtnPlayClickListeners()
+        setupBtnPauseClickListeners()
+    }
+
+    private fun setupBtnPlayClickListeners(){
+        with(binding){
+            inclBonfire.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.bonfire)
+            }
+            inclGrass.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.gras)
+            }
+            inclJungle.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.jungle)
+            }
+            inclLeaves.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.leaves)
+            }
+            inclOcean.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.ocean)
+            }
+            inclRiver.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.river)
+            }
+            inclWaterFall.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.waterfall)
+            }
+            inclWindInForest.ivBtnPlay.setOnClickListener {
+                playNewSound(R.raw.wind_in_forest)
+            }
+        }
+    }
+
+    private fun setupBtnPauseClickListeners(){
+        with(binding){
+            inclBonfire.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclGrass.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclWaterFall.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclRiver.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclOcean.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclWindInForest.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclLeaves.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+            inclJungle.ivBtnPause.setOnClickListener {
+                pausePlaying()
+            }
+        }
+    }
+
+    private fun playNewSound(soundId:Int){
+        mediaPlayer = MediaPlayer.create(requireContext(), soundId)
+        mediaPlayer?.start()
+    }
+
+    private fun pausePlaying(){
+        mediaPlayer?.pause()
+    }
+
+    private fun setupSoundLogo(){
+
+        with(binding){
+            inclBonfire.ivSoundLogo.setImageResource(R.drawable.bonfire)
+            inclJungle.ivSoundLogo.setImageResource(R.drawable.jungle)
+            inclLeaves.ivSoundLogo.setImageResource(R.drawable.leaves)
+            inclGrass.ivSoundLogo.setImageResource(R.drawable.grass)
+            inclOcean.ivSoundLogo.setImageResource(R.drawable.ocean)
+            inclWindInForest.ivSoundLogo.setImageResource(R.drawable.forest)
+            inclRiver.ivSoundLogo.setImageResource(R.drawable.river)
+            inclWaterFall.ivSoundLogo.setImageResource(R.drawable.waterfall)
+        }
+
+    }
+
+    private fun setupSoundNames(){
+        with(binding){
+            inclBonfire.tvSoundName.text = "Костёр"
+            inclRiver.tvSoundName.text = "Река"
+            inclWaterFall.tvSoundName.text = "Водопад"
+            inclOcean.tvSoundName.text = "Океан"
+            inclGrass.tvSoundName.text = "Трава"
+            inclWindInForest.tvSoundName.text = "Лес"
+            inclLeaves.tvSoundName.text = "Листья"
+            inclJungle.tvSoundName.text = "Джунгли"
+        }
+    }
+
 }

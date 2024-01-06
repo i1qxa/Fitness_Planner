@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="5dp"
+    android:background="@drawable/sound_of_nature_background"
+    android:elevation="6dp"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    >
+    <ImageView
+        android:id="@+id/ivSoundLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/ivBtnPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/play_music"
+        android:layout_margin="5dp"
+        />
+
+    <ImageView
+        android:id="@+id/ivBtnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:src="@drawable/pause_music"
+        />
+
+    <TextView
+        android:id="@+id/tvSoundName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        />
+
+
+</LinearLayout>

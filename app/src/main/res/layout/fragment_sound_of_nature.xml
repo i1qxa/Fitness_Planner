@@ -5,5 +5,84 @@
     android:layout_height="match_parent"
     tools:context=".ui.sound_of_nature.SoundOfNatureFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <include
+                android:id="@+id/inclBonfire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclGrass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclJungle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclLeaves"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclOcean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclRiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclWaterFall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+            <include
+                android:id="@+id/inclWindInForest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/sound_of_nature_item"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                />
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
 
 </FrameLayout>
