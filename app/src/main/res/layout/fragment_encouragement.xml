@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.encouragement.EncouragementFragment">
 
 
+    <WebView
+        android:id="@+id/wvMotivationVideo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
+        />
+    <ImageButton
+        android:id="@+id/btnPlayVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/play_music"
+        app:layout_constraintTop_toBottomOf="@id/wvMotivationVideo"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toStartOf="@id/btnPauseVideo"
+        />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/btnPauseVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pause_music"
+        app:layout_constraintTop_toBottomOf="@id/wvMotivationVideo"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/btnNextVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/next_video"
+        app:layout_constraintTop_toBottomOf="@id/wvMotivationVideo"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@id/btnPauseVideo"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

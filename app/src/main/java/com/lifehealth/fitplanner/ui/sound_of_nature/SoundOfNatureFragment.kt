@@ -34,6 +34,7 @@ class SoundOfNatureFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         mediaPlayer?.pause()
+        mediaPlayer?.release()
         mediaPlayer = null
     }
 
@@ -101,6 +102,7 @@ class SoundOfNatureFragment : Fragment() {
     }
 
     private fun playNewSound(soundId:Int){
+        mediaPlayer?.release()
         mediaPlayer = MediaPlayer.create(requireContext(), soundId)
         mediaPlayer?.start()
     }

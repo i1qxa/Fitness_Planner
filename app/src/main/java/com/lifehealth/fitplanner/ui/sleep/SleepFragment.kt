@@ -1,64 +1,79 @@
 package com.lifehealth.fitplanner.ui.sleep
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.lifehealth.fitplanner.R
 import com.lifehealth.fitplanner.databinding.FragmentSleepBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SleepFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SleepFragment : Fragment() {
 
     private val binding by lazy { FragmentSleepBinding.inflate(layoutInflater) }
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SleepFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SleepFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupBtnClickListener()
     }
+
+    private fun startAnim() {
+        binding.tvBreathDirection.text = " Вдох"
+        binding.ivProgress.animate().apply {
+            duration = 3000
+            scaleX(3F)
+            scaleY(3F)
+            withEndAction {
+                launchBackAnim()
+            }
+        }
+    }
+
+    private fun launchBackAnim() {
+        binding.tvBreathDirection.text = "Выдох"
+        binding.ivProgress.animate().apply {
+            duration = 1000
+            scaleX(1F)
+            scaleY(1F)
+            withEndAction {
+                startAnim()
+            }
+        }
+    }
+
+    private fun setupBtnClickListener() {
+        binding.btnStartExercise.setOnClickListener {
+            changeExerciseVisibility()
+            changeBtnText()
+            if (binding.btnStartExercise.text == requireContext().getString(R.string.stop)) startAnim()
+        }
+    }
+
+    private fun changeBtnText() {
+        binding.btnStartExercise.text =
+            if (binding.btnStartExercise.text == requireContext().getString(
+                    R.string.begin
+                )
+            ) requireContext().getString(R.string.stop) else requireContext().getString(R.string.begin)
+    }
+
+    private fun changeExerciseVisibility() {
+        val visibility =
+            if (binding.ivProgress.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+        val descriptionVisibility = binding.ivProgress.visibility
+        with(binding) {
+            ivProgress.visibility = visibility
+            tvBreathDirection.visibility = visibility
+            tvInstruction.visibility = descriptionVisibility
+        }
+    }
+
 }
