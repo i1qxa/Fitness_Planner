@@ -16,8 +16,6 @@
         android:layout_margin="5dp"
         />
 
-
-
     <ImageView
         android:id="@+id/ivBtnPlay"
         android:layout_width="wrap_content"

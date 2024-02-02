@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.lifehealth.fitplanner.databinding.FragmentEncouragementBinding
@@ -44,15 +43,30 @@ class EncouragementFragment : Fragment() {
             setupPlayer(getHTMLData("PzlV2jYSLd4"))
         }
         setupBtnClickListeners()
+        observeLoadingVideo()
+    }
+
+    private fun observeLoadingVideo(){
+
+        ErrorLoadingVideo.errorLoadingVideoLD.observe(viewLifecycleOwner){
+            if (it){
+                binding.tvErrorLoadingVideo.visibility = View.VISIBLE
+                binding.wvMotivationVideo.visibility = View.GONE
+            }else{
+                binding.tvErrorLoadingVideo.visibility = View.GONE
+                binding.wvMotivationVideo.visibility = View.VISIBLE
+            }
+        }
 
     }
 
     private fun setupPlayer(htmlData: String) {
+        ErrorLoadingVideo.errorLoadingVideoLD.value = false
         with(ytPlayer) {
             settings.javaScriptEnabled = true
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
-            webViewClient = WebViewClient()
+            webViewClient = YTWebClient()
             loadDataWithBaseURL(
                 "https://www.youtube.com",
                 htmlData,

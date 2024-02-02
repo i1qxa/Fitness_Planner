@@ -17,7 +17,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="5dp"
         android:layout_marginTop="10dp"
+        android:visibility="visible"
         />
+
+    <TextView
+        android:id="@+id/tvErrorLoadingVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/wvMotivationVideo"
+        app:layout_constraintEnd_toEndOf="@id/wvMotivationVideo"
+        app:layout_constraintBottom_toTopOf="@id/btnPlayVideo"
+        android:text="@string/error_loading_video"
+        android:visibility="gone"
+        />
+
     <ImageButton
         android:id="@+id/btnPlayVideo"
         android:layout_width="wrap_content"
